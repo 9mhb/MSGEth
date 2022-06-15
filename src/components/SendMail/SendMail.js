@@ -26,7 +26,7 @@ function SendMail({
   const dispatch = useDispatch();
 
   const [recieverCost, setRecieverCost] = useState(null);
-  const [username1,setUserName]= useState(null);
+  const [receiverUsername,setUserName]= useState(null);
 
   const onSubmit = async (formData) => {
 
@@ -85,14 +85,14 @@ function SendMail({
                   const cost = await contract.current.methods
                     .getUserInboxCost(e.target.value)
                     .call();
-                  const name1= await contract.current.methods
+                  const receiverName= await contract.current.methods
                     .getUsername(e.target.value)
                     .call();  
 
                   console.log("cost: ", cost, typeof cost);
 
                   setRecieverCost(cost);
-                  setUserName(name1)
+                  setUserName(receiverName)
                 }
               }
             };
@@ -110,7 +110,7 @@ function SendMail({
               <br/>
               Reciever name:{" "}
               <span>
-                {username1}{" "}
+                {receiverUsername}{" "}
                 
               </span>
             </p>

@@ -89,8 +89,6 @@ function SendMail({
                     .getUsername(e.target.value)
                     .call();  
 
-                  console.log("cost: ", cost, typeof cost);
-
                   setRecieverCost(cost);
                   setUserName(receiverName)
                 }

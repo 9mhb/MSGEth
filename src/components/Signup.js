@@ -27,17 +27,9 @@ export const Signup = ({
   };
 
   return (
-    <div
-      style={{
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        // height: 300,
-        flexDirection: "column",
-      }}
-    >
+    <div className="signup">
       <img style={{ paddingLeft: 12 }} src={logo} alt="logo" height={150} />
-      <Typography variant="h4">Signup</Typography>
+      <Typography variant="h4" className="text">Signup</Typography>
       <OutlinedInput
         type="text"
         value={username}
@@ -51,7 +43,8 @@ export const Signup = ({
       <Button
         variant="contained"
         style={{
-          // padding: 12,
+          backgroundColor:"rgb(67 67 67)",
+          color:"white"
         }}
         onClick={handleSignup}
       >

@@ -74,24 +74,20 @@ export const ConnectButton = ({
 }) => {
   const history = useHistory();
   return (
-    <div className="login">
-      <div className="login-container">
-        <div>
-          <p>This is a decentralized application to send messages via blockchain</p>
-          <p>To use this dApp here's a simple manual:</p>
-          <a href="https://metamask.io/"><p>Install MetaMask Wallet</p></a>
-          <p>After connecting with your wallet, you will need to SignUp with your Username </p>
-          <p>This Username will be shown to others when you send them messages so please make it meaningful</p>
-          <p>You will be able to send messages to others using their wallet public key</p>
-          <p>Also you will see your Inbox messages and Sent messages </p>
-          <p>Once you open a message from your inbox, it will be marked as read </p>
-          <p>You will see the unread messages with Bold font, and the read messages will be with light font</p>
-          <p>If you see a light font message in the Sent messages, this means that the reciever has read your message</p>
-        </div>
-        <img src={logo} alt="logo" />
+    
+    <div className="login-containar">
+      <h2>Welcome to</h2>
+      <div>
+        
+        <img src={logo} alt="logo" style={{ paddingLeft: 12 }} height={150} />
+       
+        
         <Button
           variant="contained"
-          color="primary"
+          style={{display:"block",
+                  backgroundColor:"rgb(67 67 67)",
+                  color:"white",
+                  marginLeft: "60px"}}
           onClick={() =>
             connect({
               account,
@@ -101,11 +97,26 @@ export const ConnectButton = ({
               contract,
               history,
             })
+            
           }
         >
           Connect Wallet
         </Button>
+
       </div>
+      <br></br>
+      <div className="content">
+          <h4>This is a decentralized application to send messages via blockchain</h4>
+          <h5>To use this dApp here's a simple manual:</h5>
+          <p>First! <a href="https://metamask.io/">Install MetaMask Wallet</a></p>
+          <p>After connecting with your wallet, you will need to SignUp with your Username </p>
+          <p>This Username will be shown to others when you send them messages so please make it meaningful</p>
+          <p>You will be  able to send messages to others using their wallet public key</p>
+          <p>Also you will see your Inbox messages and Sent messages </p>
+          <p>Once you open a message from your inbox, it will be marked as read </p>
+          <p>You will see the unread messages with Bold font, and the read messages will be with light font</p>
+          <p>If you see a light font message in the Sent messages, this means that the reciever has read your message</p>
+        </div>
     </div>
   );
 };

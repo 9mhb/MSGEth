@@ -16,7 +16,7 @@ export const connect = async ({
   contract,
   history,
 }) => {
-  // Load web3, accounts, and contract
+  // Load web3 using MetaMask
   if (window.ethereum) {
     web3.current = new Web3(window.ethereum);
     await window.ethereum.enable();
@@ -37,9 +37,9 @@ export const connect = async ({
     networkData.current.address
   );
 
-  // Load metamask account
+  // Load metamask accounts
   const accounts = await web3.current.eth.getAccounts();
-  //the address connected to metaMask
+  //Create an instance from user struct using the address that's connected to the MetaMask
   const user = await contract.current.methods.UsersMap(accounts[0]).call();
   if (user.username !== "") {
     setAccount({ ...user, address: accounts[0] });
@@ -49,6 +49,7 @@ export const connect = async ({
   }
 
   const { ethereum } = window;
+  //Handling changing metamask account 
   ethereum.on("accountsChanged", async (accounts) => {
     if (accounts.length !== 0) {
       const newAccount = accounts[0];
@@ -64,6 +65,8 @@ export const connect = async ({
     }
   });
 };
+
+//ConnectButton will b called using App.js if the account=Null or the metamask got disconnected
 
 export const ConnectButton = ({
   account,

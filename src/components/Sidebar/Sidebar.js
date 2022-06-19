@@ -27,11 +27,13 @@ function Sidebar({
   useEffect(() => {
     const prepare = async () => {
       if (account) {
+        // To calculate the number of unread messages to show on the sidebar
         const unreadCount = await contract.current.methods
           .calculateUnreadMessages(account.address)
           .call();
 
         setInboxUnreadCount(unreadCount);
+        // To calculate the number of sent messages to show on the sidebar
         const sentCount = await contract.current.methods
           .calculateSentMessages(account.address)
           .call();

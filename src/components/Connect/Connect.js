@@ -124,7 +124,8 @@ export const ConnectButton = ({
   );
 };
 
-function Connect({ account, setAccount, networkData, web3, contract }) {
+//If account address changed, this function will be triggered
+function GoToRootOnAccountChange({ account, setAccount, networkData, web3, contract }) {
   const history = useHistory();
 
   useEffect(() => {
@@ -136,4 +137,4 @@ function Connect({ account, setAccount, networkData, web3, contract }) {
   return null;
 }
 
-export default Connect;
+export default GoToRootOnAccountChange;

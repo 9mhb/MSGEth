@@ -8,7 +8,7 @@ import EmailList from "./components/EmailList/EmailList";
 import SendMail from "./components/SendMail/SendMail";
 import { useSelector } from "react-redux";
 import { selectSendMessageIsOpen } from "./features/mailSlice";
-import Connect, { connect, ConnectButton } from "./components/Connect/Connect";
+import GoToRootOnAccountChange, { connect, ConnectButton } from "./components/Connect/Connect";
 import { useHistory } from "react-router-dom";
 import { Signup } from "./components/Signup";
 import { useLocation } from "react-router-dom";
@@ -77,7 +77,7 @@ function App() {
       <Header account={account} web3={web3} searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
       <div className="app-body">
         <Router>
-          <Connect
+          <GoToRootOnAccountChange
             account={account}
             setAccount={setAccount}
             networkData={networkData}
